@@ -1,0 +1,73 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+    font-family: 'Kumbh Sans', sans-serif;
+}
+
+header {
+    background: url("../images/Triangle.svg") ;
+}
+
+h1,
+h2,
+h3,
+h4 {
+    font-weight: 700;
+}
+
+h1 {
+    font-size: 28px;
+    line-height: 34px;
+}
+
+h2 {
+    font-size: 24px;
+    line-height: 29px;
+}
+
+h3 {
+    font-size: 20px;
+    line-height: 24px;
+}
+
+h4 {
+    font-size: 14px;
+    line-height: 18px;
+}
+
+p {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 26px;
+}
+
+
+.card {
+    @apply relative w-[327px] xl:w-[350px] md:w-[339px] h-[228px] bg-white dark:bg-darkblue rounded-[6px] p-[32px] text-darkgray text-[16px] leading-[20px] shrink-0;
+}
+
+.company-logo {
+    @apply absolute w-[50px] h-[50px] left-[32px] top-[-25px] rounded-[15px] bg-gray-400 overflow-hidden;
+}
+
+.dot {
+    @apply inline-block w-1 h-1 rounded-full bg-darkgray mx-[12px];
+}
+
+.button1 {
+    @apply cursor-pointer w-[123px] h-[48px] bg-vio rounded-[5px] text-white font-bold hover:bg-lightvio;
+}
+
+@media (max-width: 767px) {
+    label,
+    #filter-by-location,
+    #full-time {
+        display: none;
+    }
+
+    #filter-by-title {
+        border: none;
+    }
+}

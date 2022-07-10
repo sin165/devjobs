@@ -1,0 +1,16 @@
+# THEMENAME.info.yml file for Bluedev theme.
+name: Bluedev
+type: theme
+base theme: stable
+description: 'Theme for devjobs website.'
+package: Custom
+core_version_requirement: ^8 || ^9
+libraries:
+  - bluedev/tailwind
+# Region metadata.
+regions:
+  header: 'Header'
+  content: 'Content'
+  footer: 'Footer'
+  page_top: 'Page top'
+  page_bottom: 'Page bottom'
