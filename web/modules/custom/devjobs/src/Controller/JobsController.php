@@ -43,6 +43,8 @@ class JobsController extends ControllerBase {
         $uri = $file->getFileUri();
         $url = $style->buildUrl($uri);
       }
+      $datetime = $node->created->getValue()[0]['value'];
+      $ago = timeago($datetime);
       $jobs[$nid] = [
         'id' => $nid,
         'title' => $node->getTitle(),
@@ -51,7 +53,7 @@ class JobsController extends ControllerBase {
         'schedule' => $node->field_schedule->getValue()[0]['value'],
         'location' => $node->field_location->getValue()[0]['value'],
         'logo' => $url,
-        'created' => $node->created->getValue()[0]['value'],
+        'created' => $ago,
       ];
     }
 
