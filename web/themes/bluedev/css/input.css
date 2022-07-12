@@ -43,6 +43,34 @@ p {
     line-height: 26px;
 }
 
+article h1,
+article h2,
+article h3,
+article h4 {
+    @apply text-darkblue dark:text-white;
+}
+
+article p,
+article li {
+    @apply text-darkgray dark:text-midgray;
+}
+
+article p {
+    @apply py-4;
+}
+
+article ul,
+article ol {
+    padding: 32px;
+}
+
+article ul {
+    @apply list-disc;
+}
+
+article ol {
+    @apply list-decimal;
+}
 
 .card {
     @apply relative w-[327px] xl:w-[350px] md:w-[339px] h-[228px] bg-white dark:bg-darkblue rounded-[6px] p-[32px] text-darkgray text-[16px] leading-[20px] shrink-0;
@@ -60,14 +88,49 @@ p {
     @apply cursor-pointer w-[123px] h-[48px] bg-vio rounded-[5px] text-white font-bold hover:bg-lightvio;
 }
 
+.button2 {
+    @apply cursor-pointer w-[123px] h-[48px] bg-[#5964e01a] dark:bg-[#ffffff1a] rounded-[5px] text-vio dark:text-white font-bold hover:bg-[#5964e059] dark:hover:bg-[#ffffff59];
+}
+
 @media (max-width: 767px) {
+
+    form.more-filters {
+        @apply mb-[185px] shadow-[0_80px_white] dark:shadow-[0_80px_#19202D];
+    }
+
     label,
     #filter-by-location,
     #full-time {
         display: none;
     }
 
+    .more-filters label[for="full-time"],
+    .more-filters #filter-by-location,
+    .more-filters #full-time {
+        display: block;
+    }
+
+    .more-filters #filter-by-location {
+        @apply absolute left-0 top-[80px] h-[80px] rounded-md px-4 border-none;
+    }
+
+    .more-filters #full-time {
+        @apply absolute left-[220px] top-[80px] h-[80px];
+    }
+
+    .more-filters label[for="full-time"] {
+        @apply absolute left-[270px] top-[80px] h-[80px];
+    }
+
     #filter-by-title {
         border: none;
+    }
+
+    .logo-small {
+        @apply absolute top-[-25px] left-[calc(50%-25px)] rounded-xl;
+    }
+
+    .button1 {
+        width: 100%;
     }
 }

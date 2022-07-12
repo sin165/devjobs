@@ -36,15 +36,12 @@ class JobsController extends ControllerBase {
     $jobs = [];
     foreach ($nids as $nid) {
       $node = Node::load($nid);
-      // $media = Media::load($mid);
-      $fid = $node->field_logo->getValue()[0]['target_id']??null;//??null ?
+      $fid = $node->field_logo->getValue()[0]['target_id']??null;
       $url = null;
       if ($fid) {
         $file = File::load($fid);
         $uri = $file->getFileUri();
-        // $url = file_url_transform_relative(file_create_url($uri));
         $url = $style->buildUrl($uri);
-        // $url = Url::fromUri($uri);
       }
       $jobs[$nid] = [
         'id' => $nid,

@@ -67,57 +67,34 @@
  *
  */
 #}
-<article{{ attributes }}>
-
-  {# {{ title_prefix }}
-  {% if not page %}
-    <h2{{ title_attributes }}>
-      <a href="{{ url }}" rel="bookmark">{{ label }}</a>
-    </h2>
-  {% endif %}
-  {{ title_suffix }}
-
-  {% if display_submitted %}
-    <footer>
-      {{ author_picture }}
-      <div{{ author_attributes }}>
-        {% trans %}Submitted by {{ author_name }} on {{ date }}{% endtrans %}
-        {{ metadata }}
+<div class=" bg-lightgray dark:bg-midnight rounded-md max-w-[327px] md:max-w-[689px] xl:max-w-[730px] mx-auto">
+  <article{{ attributes }}>
+    <div class="  h-[140px] bg-white dark:bg-darkblue rounded-md relative">
+      <div class="logo-small h-[50px] w-[50px] md:h-[140px] md:w-[140px] rounded-l-md overflow-hidden ">
+        {{ content.field_logo }}
       </div>
-    </footer>
-  {% endif %}
-
-  <div{{ content_attributes }}>
-    {{ content }}
-  </div> #}
-
-<p class=" text-red-700 ">
-  {{ label }}
-  {{ content.field_company }}
-  
-  {# {{ content.job_title }} #}
-  {{ content.field_company_website }}
-  {{ content.field_location }}
-  {{ content.field_logo }}
-  {{ content.field_schedule }}
-  {{ content.body }}
-  {{ content.created }}
-  {{ date }}
-</p>
-<p>
-  
-</p>
-
-
-</article>
-
-
-
-<p>----------------</p>
-
-<br>
-<br>
-<br>
-
-<br><br><br><br><br><br>
-
+      <div class=" h-[140px] md:w-[calc(100%-140px)] md:absolute md:left-[140px] md:top-0 block ">
+        <div class=" float-right mt-[46px] mr-[43px]">
+          <a href="{{ content.field_company_website.0['#url']|render }}"><button class=" button2 ">Company Site</button></a>
+        </div>
+        <h2 class=" pl-10 pt-[42px] ">
+          {{ content.field_company }}
+        </h2>
+        <div class=" text-darkgray text-[16px] leading-[20px] pl-10 ">
+          {{ content.field_company_website }}
+        </div>
+      </div>
+    </div>
+    <div class=" relative bg-white dark:bg-darkblue rounded-l-md overflow-hidden mt-8 mb-12 p-[43px] ">
+      <div class=" text-darkgray " >
+        <span class="inline-block">{{ date }}</span>
+        <div class="dot"></div>
+        <span class="inline-block">{{ content.field_schedule }}</span>
+      </div>
+      <h1 class=" pb-3 ">{{ label }}</h1>
+      <h4 class=" text-vio dark:text-vio pb-10 ">{{ content.field_location }}</h4>
+      <a href="#" class=" md:absolute md:top-16 md:right-[43px]"><button class=" button1 ">Apply Now</button></a>
+      <div class=" ">{{ content.body }}</div>
+    </div>
+  </article>
+</div>

@@ -1,12 +1,24 @@
 
 {# Search #}
-<form action="/jobs" class="  bg-white dark:bg-darkblue w-full h-[80px] rounded-md flex justify-between items-center px-4">
+<form id="form" action="/jobs" class=" bg-white dark:bg-darkblue w-full h-[80px] rounded-md flex justify-between items-center px-4">
   <label for="filter-by-title" class="px-4">
     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
       <path fill-rule="evenodd" clip-rule="evenodd" d="M16.024 15.0588H17.1123L23.9435 21.9037L21.9037 23.9435L15.0588 17.1123V16.0308L14.6824 15.6544C13.1286 16.9891 11.1093 17.7968 8.89842 17.7968C3.98374 17.7968 0 13.8131 0 8.89842C0 3.98374 3.98381 0 8.89842 0C13.813 0 17.7968 3.98374 17.7968 8.89842C17.7968 11.1093 16.9891 13.1286 15.6475 14.6824L16.024 15.0588ZM2.73799 8.89842C2.73799 12.3003 5.49651 15.0588 8.89842 15.0588C12.3003 15.0588 15.0588 12.3003 15.0588 8.89842C15.0588 5.49651 12.3003 2.73799 8.89842 2.73799C5.49651 2.73799 2.73799 5.49651 2.73799 8.89842Z" fill="#5964E0"/>
     </svg>
   </label>
   <input id="filter-by-title" class=" md:w-[158px] xl:w-[391px] h-full focus:outline-0 border-r border-darkgray/20 dark:bg-darkblue dark:text-white" type="text" name="filter-by-title" placeholder="Filter by title, companies, expertise...">
+  <div id="filter" class="pl-3 md:hidden ">
+    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M19.1076 1.50591e-06H0.860224C0.538187 -0.000593357 0.243138 0.175089 0.0960199 0.454871C-0.0531279 0.738422 -0.0269509 1.07987 0.163593 1.33883L6.84866 10.5411C6.85089 10.5443 6.85333 10.5473 6.85556 10.5504C7.09845 10.8709 7.22995 11.2591 7.23056 11.6579V19.1605C7.22914 19.3825 7.31842 19.5961 7.47853 19.7537C7.63884 19.9112 7.85677 20 8.08405 20C8.19951 19.9998 8.31396 19.9774 8.4207 19.934L12.1772 18.5345C12.5136 18.4339 12.7371 18.1236 12.7371 17.75V11.6579C12.7377 11.2591 12.8692 10.8709 13.1118 10.5504C13.1141 10.5473 13.1165 10.5443 13.1187 10.5411L19.804 1.33864C19.9946 1.07987 20.0207 0.73862 19.8716 0.45507C19.7247 0.175089 19.4294 -0.000593357 19.1076 1.50591e-06Z" fill="#6E8098"/>
+    </svg>
+    <script>
+      const filter = document.getElementById('filter');
+      const form = document.getElementById('form');
+      filter.onclick = function(){
+        form.classList.toggle('more-filters');
+      }
+    </script>
+  </div>
   <label for="filter-by-location" class="px-4">
     <svg width="17" height="24" viewBox="0 0 17 24" fill="none" xmlns="http://www.w3.org/2000/svg">
       <path fill-rule="evenodd" clip-rule="evenodd" d="M8.4477 0C10.6804 0 12.7796 0.870546 14.3585 2.45105C17.2803 5.37556 17.6434 10.8781 15.1348 14.2255L8.4477 23.894L1.75057 14.2119C-0.747997 10.8781 -0.384894 5.37556 2.53693 2.45105C4.11575 0.870546 6.21459 0 8.4477 0ZM5.47357 8.29091C5.47357 9.97484 6.84272 11.3455 8.52485 11.3455C10.207 11.3455 11.5761 9.97484 11.5761 8.29091C11.5761 6.60698 10.207 5.23636 8.52485 5.23636C6.84272 5.23636 5.47357 6.60698 5.47357 8.29091Z" fill="#5964E0"/>
@@ -15,16 +27,11 @@
   <input id="filter-by-location" class=" md:w-[156px] xl:w-[244px] h-full focus:outline-0 border-r border-darkgray/20 dark:bg-darkblue dark:text-white" type="text" name="filter-by-location" placeholder="Filter by location...">
   <input id="full-time" class=" mx-4 w-[24px] h-[24px] bg-midgray border-midgray checked:bg-green-600 border-0 cursor-pointer" type="checkbox" name="full-time" >
   <label for="full-time" class=" font-bold text-darkblue dark:text-white cursor-pointer ">Full Time Only</label>
-  <div class="pl-3 md:hidden ">
-    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M19.1076 1.50591e-06H0.860224C0.538187 -0.000593357 0.243138 0.175089 0.0960199 0.454871C-0.0531279 0.738422 -0.0269509 1.07987 0.163593 1.33883L6.84866 10.5411C6.85089 10.5443 6.85333 10.5473 6.85556 10.5504C7.09845 10.8709 7.22995 11.2591 7.23056 11.6579V19.1605C7.22914 19.3825 7.31842 19.5961 7.47853 19.7537C7.63884 19.9112 7.85677 20 8.08405 20C8.19951 19.9998 8.31396 19.9774 8.4207 19.934L12.1772 18.5345C12.5136 18.4339 12.7371 18.1236 12.7371 17.75V11.6579C12.7377 11.2591 12.8692 10.8709 13.1118 10.5504C13.1141 10.5473 13.1165 10.5443 13.1187 10.5411L19.804 1.33864C19.9946 1.07987 20.0207 0.73862 19.8716 0.45507C19.7247 0.175089 19.4294 -0.000593357 19.1076 1.50591e-06Z" fill="#6E8098"/>
-    </svg>
-  </div>
   <button class=" ml-[26px] button1 " type="submit">Search</button>
 </form>
 {# Jobs #}
 <div class="block mt-[105px] ">
-  <div class="xl:max-w-[1110px] md:max-w-[689px] max-w-[327px] mx-auto flex flex-wrap xl:gap-x-[30px] md:gap-x-[11px] gap-y-[65px] ">
+  <div class="xl:max-w-[1110px] md:max-w-[689px] max-w-[327px] mx-auto mb-[56px] flex flex-wrap xl:gap-x-[30px] md:gap-x-[11px] gap-y-[65px] ">
     {% for job in jobs %}
       <div class="card ">
         <div class="company-logo">
@@ -37,15 +44,11 @@
           <div class="dot"></div>
           {{ job.schedule }}
         </div>
-        <a href="/node/{{ job.id }}" target=”_blank”><h3 class=" text-darkblue dark:text-white py-[10px] ">{{ job.title }}</h3></a>
+        <a href="/node/{{ job.id }}"><h3 class=" text-darkblue dark:text-white py-[10px] ">{{ job.title }}</h3></a>
         {{ job.company }}
         <h4 class=" text-vio pt-[38px] ">{{ job.location }}</h4>
       </div>
     {% endfor %}
   </div>
-  <button class="block button1 mx-auto mt-[56px] mb-[104px] ">Load More</button>
+  {# <button class="block button1 mx-auto mb-[104px] ">Load More</button> #}
 </div>
-
-{# <pre>
-  {{ dump(jobs) }}
-</pre> #}
